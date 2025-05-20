@@ -1,17 +1,22 @@
-candidates = [1, 2, 3, 5]
-target = 6
-for i in range(len(candidates)):
-    a = [candidates[i]]
-    x = candidates[i]
-    if x == target:
-        print(x)
-        continue
-    for j in range(len(candidates)):
-        if i == j:
-            continue
-        x += candidates[j]
-        a.append(candidates[j])
-        if x == target:
-            print(a)
-        elif x > target:
-            break
+def combination(candidates, target):
+    candidates.sort()
+    result = []
+    def backtrack(start, path, target):
+        if target == 0:
+            result.append(path.copy())
+            return
+        for i in range(start, len(candidates)):
+            if i > start and candidates[i] == candidates[i - 1]:
+                continue
+            if candidates[i] > target:
+                break
+            path.append(candidates[i])
+            backtrack(i + 1, path, target - candidates[i])
+            path.pop()
+
+    backtrack(0, [], target)
+    return result
+
+candidates = [10, 1, 2, 7, 6, 1, 5]
+target = 8
+print(combination(candidates, target))

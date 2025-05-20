@@ -1,21 +1,20 @@
-class num:
-    a = 1
-    b = 2
+class Num:
+    def __init__(self, a=1, b=2):
+        self.a = a
+        self.b = b
+nums = Num()
 
 while True:
-    print('\n1 - вывecти числа\n2 - изменить числа\n3 - найти сумму чисел\n4 - найти наибольшее число')
+    print('\n1 - вывести числа\n2 - изменить числа\n3 - найти сумму чисел\n4 - найти наибольшее число')
     a = input()
     if a == '1':
-        print(num.a, num.b)
+        print(f"Числа: {nums.a}, {nums.b}")
     elif a == '2':
-        num.a = int(input('Введите первое число: '))
-        num.b = int(input('Введите второе число: '))
+        nums.a = int(input('Введите первое число: '))
+        nums.b = int(input('Введите второе число: '))
     elif a == '3':
-        print(f'{num.a} + {num.b} = {num.b+num.a}')
+        print(f'{nums.a} + {nums.b} = {nums.a + nums.b}')
     elif a == '4':
-        if num.a > num.b:
-            print(num.a)
-        else:
-            print(num.b)
+        print(f'Наибольшее число: {max(nums.a, nums.b)}')
     else:
         break

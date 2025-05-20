@@ -1,28 +1,36 @@
 class Calculation:
-    calculationLine = '6'
+    def __init__(self, calculationLine='6'):
+        self.calculationLine = calculationLine
     def SetCalculationLine(self):
-        self.calculationLine = input()
+        self.calculationLine = input("Введите новую строку: ")
     def SetLastSymbolCalculationLine(self):
-        self.calculationLine += input()
+        self.calculationLine += input("Введите символ для добавления: ")
     def GetCalculationLine(self):
-        print(self.calculationLine)
+        print("Текущая строка:", self.calculationLine)
     def GetLastSymbol(self):
-        print(self.calculationLine[-1])
+        print("Последний символ:", self.calculationLine[-1])
     def DeleteLastSymbol(self):
         self.calculationLine = self.calculationLine[:-1]
-x = Calculation()
-print('1 - изменить значение\n2 - добавить символ в конец строки\n3 - вывести значение\n4 - вывести последний символ\n5 - удалить последний символ')
+        print("Последний символ удалён.")
+
+calc = Calculation()
+print('1 - изменить значение')
+print('2 - добавить символ в конец строки')
+print('3 - вывести значение')
+print('4 - вывести последний символ')
+print('5 - удалить последний символ')
+
 while True:
-    a = input()
+    a = input("\nВыберите действие: ")
     if a == '1':
-        x.SetCalculationLine()
+        calc.SetCalculationLine()
     elif a == '2':
-        x.SetLastSymbolCalculationLine()
+        calc.SetLastSymbolCalculationLine()
     elif a == '3':
-        x.GetCalculationLine()
+        calc.GetCalculationLine()
     elif a == '4':
-        x.GetLastSymbol()
+        calc.GetLastSymbol()
     elif a == '5':
-        x.DeleteLastSymbol()
+        calc.DeleteLastSymbol()
     else:
         break
