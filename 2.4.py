@@ -1,11 +1,17 @@
-class counter:
-    k = 1
+class Counter:
+    def __init__(self, initial_value=1):
+        self.k = initial_value
+
+# Создаем объект счетчика
+counter = Counter()
 
 x = input(f'1 - оставить значение по умолчанию({counter.k})\n2 - задать значение счетчику\n')
 if x == '2':
-    counter.k = int(input('введите значение'))
+    initial_value = int(input('Введите значение: '))
+    counter = Counter(initial_value)
+
 while True:
-    print('\n1 - увеличеть на 1\n2 - уменьшить на 1\n3 - текущее состояние')
+    print('\n1 - увеличить на 1\n2 - уменьшить на 1\n3 - текущее состояние')
     a = input()
     if a == '1':
         counter.k += 1
