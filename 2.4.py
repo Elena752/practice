@@ -2,7 +2,6 @@ class Counter:
     def __init__(self, initial_value=1):
         self.k = initial_value
 
-# Создаем объект счетчика
 counter = Counter()
 
 x = input(f'1 - оставить значение по умолчанию({counter.k})\n2 - задать значение счетчику\n')
